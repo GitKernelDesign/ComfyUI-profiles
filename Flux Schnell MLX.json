@@ -1,0 +1,373 @@
+{
+  "last_node_id": 20,
+  "last_link_id": 19,
+  "nodes": [
+    {
+      "id": 11,
+      "type": "MLXSampler",
+      "pos": [
+        802.3216552734375,
+        -295.416015625
+      ],
+      "size": [
+        412.7943420410156,
+        470.9825439453125
+      ],
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "mlx_model",
+          "type": "mlx_model",
+          "link": 19
+        },
+        {
+          "name": "mlx_positive_conditioning",
+          "type": "mlx_conditioning",
+          "link": 14
+        },
+        {
+          "name": "latent_image",
+          "type": "LATENT",
+          "link": 17
+        }
+      ],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            12
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "MLXSampler"
+      },
+      "widgets_values": [
+        4061162061,
+        "randomize",
+        4,
+        0,
+        1
+      ]
+    },
+    {
+      "id": 12,
+      "type": "MLXDecoder",
+      "pos": [
+        820.423583984375,
+        391.3482971191406
+      ],
+      "size": [
+        229.20001220703125,
+        46
+      ],
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "latent_image",
+          "type": "LATENT",
+          "link": 12
+        },
+        {
+          "name": "mlx_vae",
+          "type": "mlx_vae",
+          "link": 15
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            13
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "MLXDecoder"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 16,
+      "type": "EmptyLatentImage",
+      "pos": [
+        806.2755737304688,
+        231.63656616210938
+      ],
+      "size": [
+        315,
+        106
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            17
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "EmptyLatentImage"
+      },
+      "widgets_values": [
+        1200,
+        1200,
+        1
+      ]
+    },
+    {
+      "id": 10,
+      "type": "MLXLoadFlux",
+      "pos": [
+        -64.74794006347656,
+        -297.895263671875
+      ],
+      "size": [
+        378,
+        98
+      ],
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "mlx_model",
+          "type": "mlx_model",
+          "links": [
+            19
+          ],
+          "slot_index": 0
+        },
+        {
+          "name": "mlx_vae",
+          "type": "mlx_vae",
+          "links": [
+            15
+          ],
+          "slot_index": 1
+        },
+        {
+          "name": "mlx_conditioning",
+          "type": "mlx_conditioning",
+          "links": [
+            16
+          ],
+          "slot_index": 2
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "MLXLoadFlux"
+      },
+      "widgets_values": [
+        "argmaxinc/mlx-FLUX.1-schnell-4bit-quantized"
+      ]
+    },
+    {
+      "id": 14,
+      "type": "MLXClipTextEncoder",
+      "pos": [
+        344.8285827636719,
+        -301.1929626464844
+      ],
+      "size": [
+        418.1999816894531,
+        200
+      ],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "mlx_conditioning",
+          "type": "mlx_conditioning",
+          "link": 16
+        }
+      ],
+      "outputs": [
+        {
+          "name": "mlx_conditioning",
+          "type": "mlx_conditioning",
+          "links": [
+            14
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "MLXClipTextEncoder"
+      },
+      "widgets_values": [
+        "Cat"
+      ],
+      "color": "#232",
+      "bgcolor": "#353",
+      "shape": 1
+    },
+    {
+      "id": 13,
+      "type": "SaveImage",
+      "pos": [
+        1317.8375244140625,
+        -297.8320007324219
+      ],
+      "size": [
+        319.55035400390625,
+        298.35675048828125
+      ],
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 13
+        }
+      ],
+      "outputs": [],
+      "properties": {},
+      "widgets_values": [
+        "ComfyUI"
+      ]
+    }
+  ],
+  "links": [
+    [
+      12,
+      11,
+      0,
+      12,
+      0,
+      "LATENT"
+    ],
+    [
+      13,
+      12,
+      0,
+      13,
+      0,
+      "IMAGE"
+    ],
+    [
+      14,
+      14,
+      0,
+      11,
+      1,
+      "mlx_conditioning"
+    ],
+    [
+      15,
+      10,
+      1,
+      12,
+      1,
+      "mlx_vae"
+    ],
+    [
+      16,
+      10,
+      2,
+      14,
+      0,
+      "mlx_conditioning"
+    ],
+    [
+      17,
+      16,
+      0,
+      11,
+      2,
+      "LATENT"
+    ],
+    [
+      19,
+      10,
+      0,
+      11,
+      0,
+      "mlx_model"
+    ]
+  ],
+  "groups": [
+    {
+      "id": 1,
+      "title": "Model (download)",
+      "bounding": [
+        -71.08243560791016,
+        -378.1090087890625,
+        390.00372314453125,
+        187.915283203125
+      ],
+      "color": "#3f789e",
+      "font_size": 24,
+      "flags": {}
+    },
+    {
+      "id": 2,
+      "title": "Group",
+      "bounding": [
+        331.8016357421875,
+        -378.1090393066406,
+        445.75994873046875,
+        292.2333679199219
+      ],
+      "color": "#3f789e",
+      "font_size": 24,
+      "flags": {}
+    },
+    {
+      "id": 3,
+      "title": "Sampler",
+      "bounding": [
+        788.6430053710938,
+        -379.90765380859375,
+        492.5232238769531,
+        840.8026733398438
+      ],
+      "color": "#3f789e",
+      "font_size": 24,
+      "flags": {}
+    },
+    {
+      "id": 4,
+      "title": "Render",
+      "bounding": [
+        1295.8447265625,
+        -381.70599365234375,
+        366.6221008300781,
+        410.940185546875
+      ],
+      "color": "#b58b2a",
+      "font_size": 24,
+      "flags": {}
+    }
+  ],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 0.5559917313492242,
+      "offset": [
+        -132.15801597391592,
+        584.9465285880714
+      ]
+    },
+    "ue_links": []
+  },
+  "version": 0.4
+}
