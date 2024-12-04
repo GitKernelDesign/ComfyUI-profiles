@@ -14,7 +14,7 @@
         476.9822692871094
       ],
       "flags": {},
-      "order": 8,
+      "order": 6,
       "mode": 0,
       "inputs": [
         {
@@ -170,40 +170,6 @@
       ]
     },
     {
-      "id": 12,
-      "type": "DualCLIPLoader",
-      "pos": [
-        -757,
-        -12
-      ],
-      "size": [
-        279.6794128417969,
-        107.2164077758789
-      ],
-      "flags": {},
-      "order": 3,
-      "mode": 0,
-      "inputs": [],
-      "outputs": [
-        {
-          "name": "CLIP",
-          "type": "CLIP",
-          "links": [],
-          "slot_index": 0,
-          "shape": 3,
-          "label": "CLIP"
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "DualCLIPLoader"
-      },
-      "widgets_values": [
-        "clip_l.safetensors",
-        "t5xxl_fp8_e4m3fn.safetensors",
-        "flux"
-      ]
-    },
-    {
       "id": 16,
       "type": "ConditioningZeroOut",
       "pos": [
@@ -215,7 +181,7 @@
         26
       ],
       "flags": {},
-      "order": 7,
+      "order": 5,
       "mode": 0,
       "inputs": [
         {
@@ -254,7 +220,7 @@
         106
       ],
       "flags": {},
-      "order": 4,
+      "order": 3,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -278,29 +244,6 @@
       ]
     },
     {
-      "id": 20,
-      "type": "Note",
-      "pos": [
-        -911,
-        242
-      ],
-      "size": [
-        426.30084228515625,
-        476.4090881347656
-      ],
-      "flags": {},
-      "order": 5,
-      "mode": 0,
-      "inputs": [],
-      "outputs": [],
-      "properties": {},
-      "widgets_values": [
-        "1. Download [Flux GGUF dev model](https://huggingface.co/city96/FLUX.1-dev-gguf) or [Flux GGUF schnell model](https://huggingface.co/city96/FLUX.1-schnell-gguf) and place the model file in the `comfyui/models/unet` directory.\n\n2. Download [t5-v1_1-xxl-encoder-gguf](https://huggingface.co/city96/t5-v1_1-xxl-encoder-gguf) and place the model file in the `comfyui/models/clip` directory.\n\n3. Download [clip_l.safetensors](https://huggingface.co/comfyanonymous/flux_text_encoders/blob/main/clip_l.safetensors) and place the model file in the `comfyui/models/clip` directory.\n\n4. Download [ae.safetensors](https://huggingface.co/black-forest-labs/FLUX.1-schnell/blob/main/ae.safetensors) and place the model file in the `comfyui/models/vae`  directory.\n\n5. Install [ComfyUI-GGUF](https://github.com/city96/ComfyUI-GGUF) plugin.\n\n6. If you are using the dev model, set the step of Ksampler to 20. If it is schnell, set the step to 4.\n\n\n1. 下载 [Flux GGUF dev 模型](https://huggingface.co/city96/FLUX.1-dev-gguf) 或 [Flux GGUF schnell 模型](https://huggingface.co/city96/FLUX.1-schnell-gguf) 并将模型文件放置在 `comfyui/models/unet` 目录下 \n\n2. 下载 [t5-v1_1-xxl-encoder-gguf](https://huggingface.co/city96/t5-v1_1-xxl-encoder-gguf),并将模型文件放置在 `comfyui/models/clip` 目录下\n\n3. 下载 [clip_l.safetensors](https://huggingface.co/comfyanonymous/flux_text_encoders/blob/main/clip_l.safetensors) 并将模型文件放置在 `comfyui/models/clip` 目录下\n\n4. 下载 [ae.safetensors](https://huggingface.co/black-forest-labs/FLUX.1-schnell/blob/main/ae.safetensors) 并将模型文件放置在 `comfyui/models/vae` 目录下,建议重命名为 `flux_ae.safetensors`\n\n5. 安装 [ComfyUI-GGUF](https://github.com/city96/ComfyUI-GGUF) 插件\n\n6. 如果你使用的是 dev 模型，请将 Ksampler 的 step 设置为 20 , 如果是 schnell 则将 step 设置为 4"
-      ],
-      "color": "#432",
-      "bgcolor": "#653"
-    },
-    {
       "id": 15,
       "type": "CLIPTextEncodeFlux",
       "pos": [
@@ -312,7 +255,7 @@
         272.1675109863281
       ],
       "flags": {},
-      "order": 6,
+      "order": 4,
       "mode": 0,
       "inputs": [
         {
@@ -356,7 +299,7 @@
         46
       ],
       "flags": {},
-      "order": 9,
+      "order": 7,
       "mode": 0,
       "inputs": [
         {
@@ -400,7 +343,7 @@
         409.5975646972656
       ],
       "flags": {},
-      "order": 10,
+      "order": 8,
       "mode": 0,
       "inputs": [
         {
@@ -548,10 +491,10 @@
   "config": {},
   "extra": {
     "ds": {
-      "scale": 0.6727499949325627,
+      "scale": 0.34522712143931117,
       "offset": [
-        161.52818440253546,
-        534.9774104152266
+        1502.361909552421,
+        948.5354798253785
       ]
     },
     "ue_links": []
