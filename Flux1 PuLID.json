@@ -1,0 +1,1052 @@
+{
+  "last_node_id": 28,
+  "last_link_id": 49,
+  "nodes": [
+    {
+      "id": 19,
+      "type": "TeaCacheForImgGen",
+      "pos": [
+        688.7605590820312,
+        263.00482177734375
+      ],
+      "size": [
+        315,
+        82
+      ],
+      "flags": {},
+      "order": 11,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 39
+        }
+      ],
+      "outputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "links": [
+            44
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "TeaCacheForImgGen"
+      },
+      "widgets_values": [
+        "flux",
+        2
+      ]
+    },
+    {
+      "id": 1,
+      "type": "RandomNoise",
+      "pos": [
+        1472.469482421875,
+        265.5504455566406
+      ],
+      "size": [
+        316.5863037109375,
+        82
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "NOISE",
+          "type": "NOISE",
+          "links": [
+            2
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "RandomNoise"
+      },
+      "widgets_values": [
+        643387440425452,
+        "randomize"
+      ],
+      "color": "#2a363b",
+      "bgcolor": "#3f5159"
+    },
+    {
+      "id": 2,
+      "type": "BasicGuider",
+      "pos": [
+        1478.7322998046875,
+        387.1759338378906
+      ],
+      "size": [
+        308.5841064453125,
+        46
+      ],
+      "flags": {},
+      "order": 16,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 42
+        },
+        {
+          "name": "conditioning",
+          "type": "CONDITIONING",
+          "link": 17
+        }
+      ],
+      "outputs": [
+        {
+          "name": "GUIDER",
+          "type": "GUIDER",
+          "links": [
+            1
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "BasicGuider"
+      },
+      "widgets_values": [],
+      "color": "#2a363b",
+      "bgcolor": "#3f5159"
+    },
+    {
+      "id": 16,
+      "type": "FluxGuidance",
+      "pos": [
+        1470.9913330078125,
+        480.48272705078125
+      ],
+      "size": [
+        317.4000244140625,
+        58
+      ],
+      "flags": {},
+      "order": 14,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "conditioning",
+          "type": "CONDITIONING",
+          "link": 16
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            17
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "FluxGuidance"
+      },
+      "widgets_values": [
+        8
+      ],
+      "color": "#2a363b",
+      "bgcolor": "#3f5159"
+    },
+    {
+      "id": 3,
+      "type": "KSamplerSelect",
+      "pos": [
+        1477.115478515625,
+        592.117919921875
+      ],
+      "size": [
+        315,
+        58
+      ],
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "SAMPLER",
+          "type": "SAMPLER",
+          "links": [
+            3
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "KSamplerSelect"
+      },
+      "widgets_values": [
+        "euler"
+      ],
+      "color": "#2a363b",
+      "bgcolor": "#3f5159"
+    },
+    {
+      "id": 4,
+      "type": "BasicScheduler",
+      "pos": [
+        1479.24560546875,
+        696.0722045898438
+      ],
+      "size": [
+        315,
+        106
+      ],
+      "flags": {},
+      "order": 15,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 43
+        }
+      ],
+      "outputs": [
+        {
+          "name": "SIGMAS",
+          "type": "SIGMAS",
+          "links": [
+            4
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "BasicScheduler"
+      },
+      "widgets_values": [
+        "normal",
+        15,
+        1
+      ],
+      "color": "#2a363b",
+      "bgcolor": "#3f5159"
+    },
+    {
+      "id": 5,
+      "type": "EmptyLatentImage",
+      "pos": [
+        1477.3404541015625,
+        849.2315673828125
+      ],
+      "size": [
+        315,
+        106
+      ],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            5
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "EmptyLatentImage"
+      },
+      "widgets_values": [
+        880,
+        1184,
+        1
+      ],
+      "color": "#2a363b",
+      "bgcolor": "#3f5159"
+    },
+    {
+      "id": 6,
+      "type": "SamplerCustomAdvanced",
+      "pos": [
+        1844.4166259765625,
+        274.01226806640625
+      ],
+      "size": [
+        339.3200378417969,
+        406.2672424316406
+      ],
+      "flags": {},
+      "order": 17,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "noise",
+          "type": "NOISE",
+          "link": 2
+        },
+        {
+          "name": "guider",
+          "type": "GUIDER",
+          "link": 1
+        },
+        {
+          "name": "sampler",
+          "type": "SAMPLER",
+          "link": 3
+        },
+        {
+          "name": "sigmas",
+          "type": "SIGMAS",
+          "link": 4
+        },
+        {
+          "name": "latent_image",
+          "type": "LATENT",
+          "link": 5
+        }
+      ],
+      "outputs": [
+        {
+          "name": "output",
+          "type": "LATENT",
+          "links": [
+            11
+          ],
+          "slot_index": 0
+        },
+        {
+          "name": "denoised_output",
+          "type": "LATENT",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "SamplerCustomAdvanced"
+      },
+      "widgets_values": [],
+      "color": "#2a363b",
+      "bgcolor": "#3f5159"
+    },
+    {
+      "id": 14,
+      "type": "SaveImage",
+      "pos": [
+        2255.931396484375,
+        432.5505065917969
+      ],
+      "size": [
+        799.7536010742188,
+        615.7484130859375
+      ],
+      "flags": {},
+      "order": 19,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 12
+        }
+      ],
+      "outputs": [],
+      "properties": {},
+      "widgets_values": [
+        "ComfyUI"
+      ]
+    },
+    {
+      "id": 13,
+      "type": "VAEDecode",
+      "pos": [
+        2282.494140625,
+        298.4622802734375
+      ],
+      "size": [
+        216.14285278320312,
+        46
+      ],
+      "flags": {},
+      "order": 18,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "samples",
+          "type": "LATENT",
+          "link": 11
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 10
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            12
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VAEDecode"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 9,
+      "type": "UnetLoaderGGUF",
+      "pos": [
+        227.07321166992188,
+        258.2937316894531
+      ],
+      "size": [
+        388.5912780761719,
+        65.54782104492188
+      ],
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            39
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "UnetLoaderGGUF"
+      },
+      "widgets_values": [
+        "flux1-dev-Q4_1.gguf"
+      ]
+    },
+    {
+      "id": 12,
+      "type": "DualCLIPLoaderGGUF",
+      "pos": [
+        232.00830078125,
+        363.548828125
+      ],
+      "size": [
+        381.0917053222656,
+        106
+      ],
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "CLIP",
+          "type": "CLIP",
+          "links": [
+            15
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "DualCLIPLoaderGGUF"
+      },
+      "widgets_values": [
+        "clip_l.safetensors",
+        "t5-v1_1-xxl-encoder-Q4_K_M.gguf",
+        "flux"
+      ]
+    },
+    {
+      "id": 7,
+      "type": "VAELoader",
+      "pos": [
+        245.75900268554688,
+        519.399169921875
+      ],
+      "size": [
+        339.9141540527344,
+        58
+      ],
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "VAE",
+          "type": "VAE",
+          "links": [
+            10
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VAELoader"
+      },
+      "widgets_values": [
+        "flux_vae.safetensors"
+      ]
+    },
+    {
+      "id": 25,
+      "type": "PulidEvaClipLoader",
+      "pos": [
+        1094.3795166015625,
+        927.8133544921875
+      ],
+      "size": [
+        264.5999755859375,
+        26
+      ],
+      "flags": {},
+      "order": 6,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "EVA_CLIP",
+          "type": "EVA_CLIP",
+          "links": [
+            45
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "PulidEvaClipLoader"
+      },
+      "widgets_values": [],
+      "color": "#332922",
+      "bgcolor": "#593930"
+    },
+    {
+      "id": 27,
+      "type": "PulidFluxModelLoader",
+      "pos": [
+        1079.72021484375,
+        796.182373046875
+      ],
+      "size": [
+        315,
+        58
+      ],
+      "flags": {},
+      "order": 7,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "PULIDFLUX",
+          "type": "PULIDFLUX",
+          "links": [
+            47
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "PulidFluxModelLoader"
+      },
+      "widgets_values": [
+        "pulid_flux_v0.9.1.safetensors"
+      ],
+      "color": "#332922",
+      "bgcolor": "#593930"
+    },
+    {
+      "id": 26,
+      "type": "PulidFluxInsightFaceLoader",
+      "pos": [
+        1069.7723388671875,
+        668.8014526367188
+      ],
+      "size": [
+        329.10003662109375,
+        58
+      ],
+      "flags": {},
+      "order": 8,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "FACEANALYSIS",
+          "type": "FACEANALYSIS",
+          "links": [
+            46
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "PulidFluxInsightFaceLoader"
+      },
+      "widgets_values": [
+        "CPU"
+      ],
+      "color": "#332922",
+      "bgcolor": "#593930"
+    },
+    {
+      "id": 24,
+      "type": "ApplyPulidFlux",
+      "pos": [
+        1084.5302734375,
+        275.5994873046875
+      ],
+      "size": [
+        315,
+        346
+      ],
+      "flags": {},
+      "order": 13,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 44
+        },
+        {
+          "name": "pulid_flux",
+          "type": "PULIDFLUX",
+          "link": 47
+        },
+        {
+          "name": "eva_clip",
+          "type": "EVA_CLIP",
+          "link": 45
+        },
+        {
+          "name": "face_analysis",
+          "type": "FACEANALYSIS",
+          "link": 46
+        },
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 48
+        },
+        {
+          "name": "attn_mask",
+          "type": "MASK",
+          "link": 49,
+          "shape": 7
+        },
+        {
+          "name": "prior_image",
+          "type": "IMAGE",
+          "link": null,
+          "shape": 7
+        }
+      ],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            42,
+            43
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ApplyPulidFlux"
+      },
+      "widgets_values": [
+        1,
+        0,
+        1,
+        "mean",
+        1,
+        0,
+        1000,
+        true
+      ],
+      "color": "#332922",
+      "bgcolor": "#593930"
+    },
+    {
+      "id": 23,
+      "type": "Note",
+      "pos": [
+        1915.40380859375,
+        766.4812622070312
+      ],
+      "size": [
+        210,
+        263.61114501953125
+      ],
+      "flags": {},
+      "order": 9,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "properties": {
+        "text": ""
+      },
+      "widgets_values": [
+        "SUPPORTED RESOLUTIONS\n=====================\n\nratio  resolution\n-----------------\n0.5:   704×1408\n0.52:  704×1344\n0.57:  768×1344\n0.6:   768×1280\n0.68:  832×1216\n0.72:  832×1152\n0.78:  896×1152\n0.82:  896×1088\n0.88:  960×1088\n0.94:  960×1024\n1.0:  1024×1024\n1.07:  1024×960\n1.13:  1088×960\n1.21:  1088×896\n1.29:  1152×896\n1.38:  1152×832\n1.46:  1216×832\n1.67:  1280×768\n1.75:  1344×768\n1.91:  1344×704\n2.0:   1408×704\n2.09:  1472×704\n2.4:   1536×640\n2.5:   1600×640\n2.89:  1664×576\n3.0:   1728×576"
+      ],
+      "color": "#2a363b",
+      "bgcolor": "#3f5159",
+      "shape": 2
+    },
+    {
+      "id": 15,
+      "type": "CLIPTextEncode",
+      "pos": [
+        241.50390625,
+        725.59130859375
+      ],
+      "size": [
+        400.8586120605469,
+        276.4813537597656
+      ],
+      "flags": {},
+      "order": 12,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 15
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            16
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CLIPTextEncode"
+      },
+      "widgets_values": [
+        ""
+      ],
+      "color": "#232",
+      "bgcolor": "#353"
+    },
+    {
+      "id": 28,
+      "type": "LoadImage",
+      "pos": [
+        677.7789306640625,
+        701.3822021484375
+      ],
+      "size": [
+        315,
+        314
+      ],
+      "flags": {},
+      "order": 10,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            48
+          ],
+          "slot_index": 0
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": [
+            49
+          ],
+          "slot_index": 1
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        "example.png",
+        "image"
+      ]
+    }
+  ],
+  "links": [
+    [
+      1,
+      2,
+      0,
+      6,
+      1,
+      "GUIDER"
+    ],
+    [
+      2,
+      1,
+      0,
+      6,
+      0,
+      "NOISE"
+    ],
+    [
+      3,
+      3,
+      0,
+      6,
+      2,
+      "SAMPLER"
+    ],
+    [
+      4,
+      4,
+      0,
+      6,
+      3,
+      "SIGMAS"
+    ],
+    [
+      5,
+      5,
+      0,
+      6,
+      4,
+      "LATENT"
+    ],
+    [
+      10,
+      7,
+      0,
+      13,
+      1,
+      "VAE"
+    ],
+    [
+      11,
+      6,
+      0,
+      13,
+      0,
+      "LATENT"
+    ],
+    [
+      12,
+      13,
+      0,
+      14,
+      0,
+      "IMAGE"
+    ],
+    [
+      15,
+      12,
+      0,
+      15,
+      0,
+      "CLIP"
+    ],
+    [
+      16,
+      15,
+      0,
+      16,
+      0,
+      "CONDITIONING"
+    ],
+    [
+      17,
+      16,
+      0,
+      2,
+      1,
+      "CONDITIONING"
+    ],
+    [
+      39,
+      9,
+      0,
+      19,
+      0,
+      "MODEL"
+    ],
+    [
+      42,
+      24,
+      0,
+      2,
+      0,
+      "MODEL"
+    ],
+    [
+      43,
+      24,
+      0,
+      4,
+      0,
+      "MODEL"
+    ],
+    [
+      44,
+      19,
+      0,
+      24,
+      0,
+      "MODEL"
+    ],
+    [
+      45,
+      25,
+      0,
+      24,
+      2,
+      "EVA_CLIP"
+    ],
+    [
+      46,
+      26,
+      0,
+      24,
+      3,
+      "FACEANALYSIS"
+    ],
+    [
+      47,
+      27,
+      0,
+      24,
+      1,
+      "PULIDFLUX"
+    ],
+    [
+      48,
+      28,
+      0,
+      24,
+      4,
+      "IMAGE"
+    ],
+    [
+      49,
+      28,
+      1,
+      24,
+      5,
+      "MASK"
+    ]
+  ],
+  "groups": [
+    {
+      "id": 1,
+      "title": "Flux.1DEV",
+      "bounding": [
+        207.3249053955078,
+        177.79449462890625,
+        430.58831787109375,
+        424.98321533203125
+      ],
+      "color": "#a1309b",
+      "font_size": 24,
+      "flags": {}
+    },
+    {
+      "id": 2,
+      "title": "Prompt and image reference",
+      "bounding": [
+        213.38998413085938,
+        618.703369140625,
+        817.15625,
+        444.80859375
+      ],
+      "color": "#8A8",
+      "font_size": 24,
+      "flags": {}
+    },
+    {
+      "id": 3,
+      "title": "Sampler",
+      "bounding": [
+        1439.69970703125,
+        178.3510284423828,
+        782.6978759765625,
+        891.6636352539062
+      ],
+      "color": "#3f789e",
+      "font_size": 24,
+      "flags": {}
+    },
+    {
+      "id": 4,
+      "title": "Render",
+      "bounding": [
+        2230.958251953125,
+        175.1890106201172,
+        842.895263671875,
+        893.9367065429688
+      ],
+      "color": "#b58b2a",
+      "font_size": 24,
+      "flags": {}
+    },
+    {
+      "id": 5,
+      "title": "Speed Flux.1Dev",
+      "bounding": [
+        657.6031494140625,
+        176.10311889648438,
+        371.84552001953125,
+        427.209716796875
+      ],
+      "color": "#a1309b",
+      "font_size": 24,
+      "flags": {}
+    },
+    {
+      "id": 6,
+      "title": "PuLID",
+      "bounding": [
+        1047,
+        180.38949584960938,
+        374.16845703125,
+        889.0917358398438
+      ],
+      "color": "#b06634",
+      "font_size": 24,
+      "flags": {}
+    }
+  ],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 0.5131581182307069,
+      "offset": [
+        15.50079842954159,
+        117.41639699812006
+      ]
+    },
+    "node_versions": {
+      "teacache": "94f536390d8226c1259354bfd21ab932ac56a1f9",
+      "comfy-core": "0.3.14",
+      "ComfyUI-GGUF": "5875c52f59baca3a9372d68c43a3775e21846fe0",
+      "pulid_comfyui": "1.0.1",
+      "ComfyUI-PuLID-Flux-Enhanced": "04e1b52320f1f14383afe18959349703623c5b88"
+    },
+    "ue_links": []
+  },
+  "version": 0.4
+}
