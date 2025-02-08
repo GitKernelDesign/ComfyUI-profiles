@@ -1,5 +1,3 @@
-> Voici comment j'ai commencé avec ComfyUI.
-Des workflows orientés GGUF et MLX étant sur Mac OS Apple Silicon.
+> Voici mes différents workflow. PC et Mac.
 
-> Here's how I got started with ComfyUI.
-Workflows for GGUF and MLX on Mac OS Apple Silicon.
+> Here are my different workflows. PC and Mac.
